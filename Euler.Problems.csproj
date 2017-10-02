@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{451CE895-C146-4513-A53E-33AA5CBBD4A8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Euler.Solutions</RootNamespace>
+    <AssemblyName>Euler.Problems</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BigInteger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="Palindromes.cs" />
+    <Compile Include="Problems50\Problem66.cs" />
+    <Compile Include="Problems50\Problem x.cs" />
+    <Compile Include="Problems50\Problem64.cs" />
+    <Compile Include="Problems50\Problem63.cs" />
+    <Compile Include="Problems50\Problem62.cs" />
+    <Compile Include="Problems50\Problem61.cs" />
+    <Compile Include="Problems50\Problem60.cs" />
+    <Compile Include="Problems50\Problem58.cs" />
+    <Compile Include="Problems50\Problem57.cs" />
+    <Compile Include="Problems50\Problem56.cs" />
+    <Compile Include="Problems50\Problem55.cs" />
+    <Compile Include="Problems50\Problem54.cs" />
+    <Compile Include="Problems50\Problem53.cs" />
+    <Compile Include="Problems50\Problem52.cs" />
+    <Compile Include="Problems50\Problem51.cs" />
+    <Compile Include="Problems50\Problem50.cs" />
+    <Compile Include="Problems50\Problem65.cs" />
+    <Compile Include="Problems\Problem49.cs" />
+    <Compile Include="Problems\Problem48.cs" />
+    <Compile Include="Problems\Problem47.cs" />
+    <Compile Include="Problems\Problem46.cs" />
+    <Compile Include="Problems\Problem45.cs" />
+    <Compile Include="Problems\Problem44.cs" />
+    <Compile Include="Problems\Problem43.cs" />
+    <Compile Include="Problems\Problem42.cs" />
+    <Compile Include="Problems\Problem41.cs" />
+    <Compile Include="Problems\Problem40.cs" />
+    <Compile Include="Problems\Problem39.cs" />
+    <Compile Include="Problems\Problem38.cs" />
+    <Compile Include="Problems\Problem37.cs" />
+    <Compile Include="Problems\Problem36.cs" />
+    <Compile Include="Problems\Problem35.cs" />
+    <Compile Include="Problems\Problem34.cs" />
+    <Compile Include="Problems\Problem33.cs" />
+    <Compile Include="Problems\Problem32.cs" />
+    <Compile Include="Problems\Problem31.cs" />
+    <Compile Include="Problems\Problem30.cs" />
+    <Compile Include="Problems\Problem29.cs" />
+    <Compile Include="Problems\Problem28.cs" />
+    <Compile Include="Problems\Problem27.cs" />
+    <Compile Include="Problems\Problem26.cs" />
+    <Compile Include="Problems\Problem25.cs" />
+    <Compile Include="Problems\Problem24.cs" />
+    <Compile Include="Problems\Problem23.cs" />
+    <Compile Include="Problems\Problem22.cs" />
+    <Compile Include="Problems\Problem21.cs" />
+    <Compile Include="Problems\Problem20.cs" />
+    <Compile Include="Problems\Problem19.cs" />
+    <Compile Include="Problems\Problem18.cs" />
+    <Compile Include="Problems\Problem17.cs" />
+    <Compile Include="Problems\Problem16.cs" />
+    <Compile Include="Problems\Problem15.cs" />
+    <Compile Include="Problems\Problem14.cs" />
+    <Compile Include="Problems50\Problem59.cs" />
+    <Compile Include="Problems\Problem00.cs" />
+    <Compile Include="Problems\Problem13.cs" />
+    <Compile Include="Problems\Problem12.cs" />
+    <Compile Include="Problems\Problem11.cs" />
+    <Compile Include="Problems\Problem10.cs" />
+    <Compile Include="Problems\Problem09.cs" />
+    <Compile Include="Problems\Problem08.cs" />
+    <Compile Include="Problems\Problem07.cs" />
+    <Compile Include="Problems\Problem06.cs" />
+    <Compile Include="UnitTest.cs" />
+    <Compile Include="Problems\Problem05.cs" />
+    <Compile Include="Problems\Problem04.cs" />
+    <Compile Include="PrimeNumber.cs" />
+    <Compile Include="Fibonacci.cs" />
+    <Compile Include="Problems\Problem01.cs" />
+    <Compile Include="Problems\Problem02.cs" />
+    <Compile Include="Problems\Problem03.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Text\answers.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Text\names.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Text\poker.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Text\words.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

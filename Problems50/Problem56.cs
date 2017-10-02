@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Diagnostics;
+namespace Euler.Solutions
+{
+    /// <summary>
+    /// see http://projecteuler.net/index.php?section=problems&id=56
+    ///
+    /// analyse:
+    /// 
+    /// performance improvements:
+    /// 
+    /// 
+    /// </summary>
+    class Problem56 : Helper, IProblem
+    {
+        public double Execute()
+        {
+            var sum = 0;
+            for (BigInteger x = 91; x < 100; x++) for (int y = 91; y < 100; y++)
+            {
+                sum = Math.Max(sum, (x ^ y).ToString().Sum(c => c - '0'));
+            }
+            return sum;
+        }
+        [Obsolete("use .Sum() extension 16 -> 19 ms")]
+        private int SumDigits(string s)
+        {
+            int sum = 0;
+            for (int i = 0; i < s.Length; i++) sum += s[i] - '0';
+            return sum;
+        }
+
+    } 
+}
