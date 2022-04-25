@@ -16,9 +16,9 @@ namespace Euler.Solutions
     {
         public double Execute()
         {
-            double a = F(1);
+            //double a = F(1);
 
-            double s = (F(999)+F(1000))/2; //ΣG(n^3) = 153506976 for 1 <= n < 10^3.
+            double s = (F(999)+ F(1000))/2; //ΣG(n^3) = 153506976 for 1 <= n < 10^3.
             return s;
         }
         public double Execute1()
@@ -32,9 +32,9 @@ namespace Euler.Solutions
                 sum += G(n);
                 Console.WriteLine("G({0})={1} sum={2}", n, G(n), sum);
             }
-            int sum1 = 153506976;
-            long G1E_6_1_3 = 160113493649; //G((10^6-1)^3) = 160113493649
-            long G1E_5_1_3 = 2240166964;
+            //int sum1 = 153506976;
+            //long G1E_6_1_3 = 160113493649; //G((10^6-1)^3) = 160113493649
+            //long G1E_5_1_3 = 2240166964;
             //double sum3 = G(Math.Pow(1e+5 - 1, 3));
             return sum;
         }
@@ -43,37 +43,37 @@ namespace Euler.Solutions
         // f(n)= a.n^(3*b)
         // Integraal F(x) = a/(b+1) * x^(b+1)
         // Integraal F(n) = a/(3b+1) * n^(3b+1) 
-        private double F(int n)
+        private static double F(int n)
         {
-            int good = 153506976;
+            //int good = 153506976;
             double a = 1.201783329306916;  //Q^(2 - Q) where golden ratio Q = (sqrt(5)+1)/2
             double b = 0.6180339887498949; //Q - 1
             double integraal = (a * Math.Pow(n, (3 * b + 1)) / (3 * b + 1) );
             return integraal;
         }
-        private double Ginv(int n)
-        {
-            double sum = 0;
-            for (int i = 0; i < n; i++)
-			{
-                sum += G(i); 
-			}
-            return sum;
-        }
-        public double Execute2()
-        {
-            List<int> G = new List<int>();
-            G.AddRange(new int[] {0,1,2,2});
-            for (int n = 3; n <= 88; n++) for (int i = 0; i < G[n]; i++) G.Add(n);
+        //private double Ginv(int n)
+        //{
+        //    double sum = 0;
+        //    for (int i = 0; i < n; i++)
+        //    {
+        //        sum += G(i);
+        //    }
+        //    return sum;
+        //}
+        //public double Execute2()
+        //{
+        //    List<int> G = new();
+        //    G.AddRange(new int[] {0,1,2,2});
+        //    for (int n = 3; n <= 88; n++) for (int i = 0; i < G[n]; i++) G.Add(n);
             
-            for (int i = 0; i < G.Count; i++)
-            {
-                //if (G[i] != this.G(i)) Console.Write("*");
-                Console.WriteLine("G[{0}]={1}", i, G[i], i, this.G(i));
-            }
-            return 0;
-        }
-        public double execute1()
+        //    for (int i = 0; i < G.Count; i++)
+        //    {
+        //        //if (G[i] != this.G(i)) Console.Write("*");
+        //        Console.WriteLine($"G[{i}]={G[i]}");
+        //    }
+        //    return 0;
+        //}
+        public double Xexecute1()
         {
             for (int i = 0; i < 10; i++)
             {
