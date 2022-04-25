@@ -162,6 +162,8 @@
     <Content Include="Text\poker.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Text\Unittest 1.txt" />
+    <Content Include="Text\Unittest 2.txt" />
     <Content Include="Text\words.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

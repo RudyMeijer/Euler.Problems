@@ -22,8 +22,9 @@ namespace Euler.Solutions
 
 		public double Execute()
 		{
-			var sum = Helper.SumDigits(Numerator(MAXPLY));
-			return sum;
+            //var sam = Helper.SumDigits(Numerator(MAXPLY));
+            var sum = Numerator(MAXPLY).ToString().SumDigits();
+            return sum;
 		}
 
 		private System.Numerics.BigInteger Numerator(int ply)

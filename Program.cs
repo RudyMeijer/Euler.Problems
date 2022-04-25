@@ -29,7 +29,7 @@ namespace Euler.Solutions
             /// Find all problem classes in this assembly.
             /// 
             var Problems = from Problem in Assembly.GetExecutingAssembly().GetTypes()
-                           where Problem.Name.StartsWith("Problem66") // Remove number to execute all tests.
+                           where Problem.Name.StartsWith("Problem") // Remove number to execute all tests.
                            orderby  Problem.Name ascending select Problem;
             ///
             /// Execute each problem and show results.
@@ -37,7 +37,7 @@ namespace Euler.Solutions
             foreach (var Problem in Problems)
             {
                 IProblem problem = (IProblem)Activator.CreateInstance(Problem);
-                UnitTest.Pass(problem,1000);
+                UnitTest.Pass(problem,1);
                 Console.WriteLine("{0,-9} ={1,12} elapsed time:{2,5} ms. Test {3}.", Problem.Name, UnitTest.result, UnitTest.ElapsedMilliseconds, UnitTest.passed?"Passed":"Failed !!!");
                 //break; // only execute last problem
             }

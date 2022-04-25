@@ -63,5 +63,13 @@ namespace Euler.Solutions
             }
             //Console.WriteLine("Permutatie: {0} ms",s.ElapsedMilliseconds);
         }
+        //[Obsolete("use .Sum() extension 16 -> 19 ms")]
+        public static int SumDigits(this string s)
+        {
+            int sum = 0;
+            for (int i = 0; i < s.Length; i++) sum += s[i] - '0';
+            return sum;
+        }
+
     }
 }

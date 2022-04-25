@@ -13,7 +13,7 @@ namespace Euler.Solutions
     /// 
     /// performance improvements:
     ///</summary>
-    class Problem6: Helper,IProblem
+    class XProblem6: Helper,IProblem
     {
         public double Execute()
         {

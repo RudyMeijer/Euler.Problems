@@ -11,7 +11,7 @@ namespace Euler.Solutions
 	/// 
 	/// performance improvements: use Chakravala method http://en.wikipedia.org/wiki/Chakravala_method.
 	///</summary>
-	class Problem66 : Helper, IProblem
+	class xProblem66 : Helper, IProblem
 	{
 		public double Execute()
 		{

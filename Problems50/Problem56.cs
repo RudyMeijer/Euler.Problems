@@ -21,18 +21,10 @@ namespace Euler.Solutions
         {
             var sum = 0;
             for (BigInteger x = 91; x < 100; x++) for (int y = 91; y < 100; y++)
-            {
-                sum = Math.Max(sum, (x ^ y).ToString().Sum(c => c - '0'));
-            }
+                {
+                    sum = Math.Max(sum, (x ^ y).ToString().Sum(c => c - '0'));
+                }
             return sum;
         }
-        [Obsolete("use .Sum() extension 16 -> 19 ms")]
-        private int SumDigits(string s)
-        {
-            int sum = 0;
-            for (int i = 0; i < s.Length; i++) sum += s[i] - '0';
-            return sum;
-        }
-
-    } 
+    }
 }
