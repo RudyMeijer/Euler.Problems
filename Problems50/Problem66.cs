@@ -11,7 +11,7 @@ namespace Euler.Solutions
 	/// 
 	/// performance improvements: use Chakravala method http://en.wikipedia.org/wiki/Chakravala_method.
 	///</summary>
-	class xProblem66 : Helper, IProblem
+	class Problem66 : Helper, IProblem
 	{
 		public double Execute()
 		{
@@ -19,6 +19,7 @@ namespace Euler.Solutions
 			var list = new long[1001];
 			for (int D = 1; D <= 1000; D++)
 			{
+                Console.WriteLine($"D={D}");
 				var sqr = Math.Sqrt(D);
 				if (sqr == (int)sqr) { list[D] = -1; continue; } // D is kwadratic.
 				if (list[D] == 0)
@@ -101,7 +102,7 @@ namespace Euler.Solutions
 			var a1 = (a * t.a + N * b * t.b);
 			var b1 = (a * t.b + t.a * b);
 			var k1 = k * t.k;
-			return new Triple(a1 / k, b1 / k, k1 / k);
+            return new Triple(a1 / k, b1 / k, k1 / k);
 		}
 		public override string ToString()
 		{

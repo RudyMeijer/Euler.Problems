@@ -26,7 +26,7 @@ namespace Euler.Solutions
             return nnn / 10 / p * p + nnn % (p);
         }
         static int[] p = new PrimeNumberSieve().Take(54).ToArray();
-		public static bool isPrime(this long n)
+		public static bool IsPrime(this long n)
 		{
 			if (n == 2 || n == 3) return true;
 			if (n == 1 || (n & 1) == 0) return false;
@@ -47,7 +47,7 @@ namespace Euler.Solutions
 			}
 			return false;
 		}
-		public static bool isSquare(this long n)
+		public static bool IsSquare(this long n)
 		{
 			var npos= Math.Abs(n);
 			if (npos == 1 || npos == 2) return true;  
@@ -57,7 +57,7 @@ namespace Euler.Solutions
 		}
 		public static void UnitTest()
         {
-            Stopwatch s = Stopwatch.StartNew();
+            //Stopwatch s = Stopwatch.StartNew();
             //foreach (var item in 1234567.Permutatie())
             {
             }

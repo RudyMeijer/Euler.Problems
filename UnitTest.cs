@@ -27,8 +27,8 @@ namespace Euler.Solutions
         /// </returns>
         public static void Pass(IProblem problem,int count)
         {
-            if (answers == null) getAnswers("text/Answers.txt");
-            int nr = problem.ToString().nr();
+            if (answers == null) GetAnswers("text/Answers.txt");
+            int nr = problem.ToString().Nr();
             var expected = answers[nr];
             Stopwatch s = Stopwatch.StartNew();
             while (count--> 0) result = problem.Execute();
@@ -39,16 +39,16 @@ namespace Euler.Solutions
         /// <summary>
         /// extract nummer at end of string.
         /// </summary>
-        public static int nr(this string s)
+        public static int Nr(this string s)
         {
-            for (int i = s.Length - 3; i < s.Length; i++) if (Char.IsDigit(s[i])) return int.Parse(s.Substring(i));
+            for (int i = s.Length - 3; i < s.Length; i++) if (Char.IsDigit(s[i])) return int.Parse(s[i..]);
             return 0;
         }
         /// <summary>
         /// Get answers from textfile answers.txt
         /// LINQ is used to get all answers from column 2 and convert them to a List<double>.
         /// </summary>
-        private static void getAnswers(string answerFile)
+        private static void GetAnswers(string answerFile)
         {
             double temp;
             answers = (from line in File.ReadAllLines(answerFile)

@@ -114,7 +114,7 @@ namespace Euler.Solutions
         }
         public static void ConsoleWriteToFile(string outputFile)
         {
-            StreamWriter sw = new StreamWriter(outputFile);
+            StreamWriter sw = new(outputFile);
             sw.AutoFlush=true;
             Console.SetOut(sw);
         }

@@ -8,8 +8,8 @@ namespace Euler.Solutions
 {
     class Helper
     {
-        static PrimeNumberSieve p = new PrimeNumberSieve();
-        public static List<int> primes = new PrimeNumberSieve().ToList();
+        static PrimeNumberSieve p = new();
+        public static List<int> primes = p.ToList();
         /// <summary>
         /// Combination C(n/k) = n!/k!(n-k)!
         /// </summary>
@@ -18,13 +18,13 @@ namespace Euler.Solutions
         /// <returns></returns>
         public static double C(int n, int k)
         {
-            return fac(n) / fac(k) / fac(n - k);
+            return Fac(n) / Fac(k) / Fac(n - k);
         }
-        private static double fac(int n)
+        private static double Fac(int n)
         {
-            if (n <= 1) return 1;
-            return (double)n * fac(n-1);
+            return n <= 1 ? 1 : n * Fac(n - 1);
         }
+
         /// <summary>
         /// Least Common Multiplier (KGV)
         /// </summary>
@@ -73,7 +73,8 @@ namespace Euler.Solutions
         public static ulong Reverse(ulong n)
         {
             ulong r = 0;
-            do r = r * 10 + n % 10; while ((n /= 10) > 0);
+            do r = r * 10 + n % 10;
+            while ((n /= 10) > 0);
             return r;
         }
         public static string Factorsx(ulong nn)
@@ -96,47 +97,48 @@ namespace Euler.Solutions
         }
         public static IEnumerable<long> Permutation(long n)
         {
-            int k  = (int)Math.Log10(n)+1;
+            int k = (int)Math.Log10(n) + 1;
             return Permutation(n, k);
         }
-        public static IEnumerable<long> Permutation(long n,int k)
+        public static IEnumerable<long> Permutation(long n, int k)
         {
-            var p   = (long)Math.Pow(10, (int)Math.Log10(n));
+            var p = (long)Math.Pow(10, (int)Math.Log10(n));
             var pow = (long)Math.Pow(10, k - 1);
             for (int i = 0; p > 0; i++)
             {
                 var c = ((n / p) % 10) * pow;
-                if (k == 1) 
+                if (k == 1)
                     yield return c;
-                else foreach (var perm in Permutation(n.RemoveDigit(i),k-1))
-                    yield return c + perm;
+                else foreach (var perm in Permutation(n.RemoveDigit(i), k - 1))
+                        yield return c + perm;
 
                 p /= 10;
             }
         }
         // Test for primairly using the Miller-Rabin test.
-        
+
         // Every prime yield to a^(p − 1) mod p = 1 where a is a coprime.
-        
+
         // Miller-Rabin pseudoprime: a^(n − 1) mod n = 1
         // Euler pseudoprime.......: a^(n − 1)/2 mod n = +-1
         public static void UnitTest()
         {
-            Stopwatch s = Stopwatch.StartNew();
-            Debug.Assert(Factorsx(7653241) == "7653241 = 251 x 30491","UnitTest factorsx failed.");
-            Debug.Assert(C(4,2) == 6, "UnitTest C(4,2) failed.");
-            Debug.Assert(fac(4) == 4 * 3 * 2 * 1, "UnitTest fac(4) failed.");
+            Debug.Assert(Factorsx(7653241) == "7653241 = 251 x 30491", "UnitTest factorsx failed.");
+            Debug.Assert(C(4, 2) == 6, "UnitTest C(4,2) failed.");
+            Debug.Assert(Fac(4) == 4 * 3 * 2 * 1, "UnitTest fac(4) failed.");
             Debug.Assert(kgv(2, 3, 5, 7, 11) == 2 * 3 * 5 * 7 * 11, "Unittest kgv failed.");
             //for (int i = 0; i < 10; i++) kgv(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
             Debug.Assert(kgv(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) == 2520, "Unittest kgv failed.");
             //foreach (var item in Permutation(123456L, 2)) Console.WriteLine(item);
             Debug.Assert(Permutation(123L, 1).Count() == 3, "UnitTest Permutation1 failed.");
-            Debug.Assert(Permutation(1234567L).Count() == fac(7), "UnitTest Permutation2 failed.");
+            Debug.Assert(Permutation(1234567L).Count() == Fac(7), "UnitTest Permutation2 failed.");
             Debug.Assert(gcd(42, 56) == 14, "UnitTest gcd failed.");
             Debug.Assert(IsPalindrome(12345678987654321) == true, "UnitTest Ispalindrome failed.");
-            s = Stopwatch.StartNew();
-            for (int i = 0; i < 2000; i++) Debug.Assert(IsPrime(i) == p.IsPrime(i),String.Format("UnitTest Isprime({0}) failed.",i));
-            Console.WriteLine("Helper : {0} ms.",s.ElapsedMilliseconds);
+            Debug.Assert(IsPalindrome(11) == true, "UnitTest Ispalindrome2 failed.");
+            Debug.Assert(IsPalindrome(12) == false, "UnitTest Ispalindrome3 failed.");
+            Stopwatch s = Stopwatch.StartNew();
+            for (int i = 0; i < 2000; i++) Debug.Assert(IsPrime(i) == p.IsPrime(i), $"UnitTest Isprime({i}) failed.");
+            Console.WriteLine($"Helper : {s.ElapsedMilliseconds} ms.");
         }
     }
 }

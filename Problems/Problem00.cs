@@ -9,7 +9,8 @@ namespace Euler.Solutions
     /// This class contains a reference loop.
     /// It takes 3,37 ms to execute on my machine (Intel Core Duo P8600 2.4 Ghz)
     /// 
-    /// This class can be used to compare relative execution times on your machine.
+    /// Use this class to compare relative execution times on your machine.
+    /// 
     /// Problem03 takes 58 ms to execute on my machine.
     /// Suppose that on your machine Problem03 takes 80 ms and this class takes 6 ms to execute 
     /// then your solution of problem03 is more efficient. (6/3,37*58 ms > 80 ms )

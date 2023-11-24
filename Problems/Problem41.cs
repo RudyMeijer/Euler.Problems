@@ -24,7 +24,7 @@ namespace Euler.Solutions
     {
         public double Execute() 
         {
-            foreach (var perm in Permutation(7654321L)) if ((perm.isPrime()))
+            foreach (var perm in Permutation(7654321L)) if ((perm.IsPrime()))
                 return perm;
             return 0;
         }

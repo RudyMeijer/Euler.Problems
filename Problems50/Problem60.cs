@@ -14,33 +14,33 @@ namespace Euler.Solutions
     ///</summary>
     class Problem60: Helper, IProblem
     {
-        HashSet<int> answer = new HashSet<int>();
+        readonly HashSet<int> answer = new();
         const int max = 1051;
         int sum;
 
         public double Execute()
         {
-            return recurse(0);
+            return Recurse(0);
         }
 
-        private int recurse(int prime)
+        private int Recurse(int prime)
         {
-            while (sum == 0 && ++prime < max) if (okPrime(prime))
+            while (sum == 0 && ++prime < max) if (OkPrime(prime))
             {
                 answer.Add(prime);
-                recurse(prime + 1);
+                Recurse(prime + 1);
                 answer.Remove(prime);
             }
             if (answer.Count == 5) sum = answer.Sum(x => primes[x]);
             return sum;
         }
 
-        private bool okPrime(int p)
+        private bool OkPrime(int p)
         {
-            foreach (var j in answer) if (!(IsPrime(concat(p, j)) && IsPrime(concat(j, p)))) return false;
+            foreach (var j in answer) if (!(IsPrime(Concat(p, j)) && IsPrime(Concat(j, p)))) return false;
             return true;
         }
-        private int concat(int i, int j)
+        private static int Concat(int i, int j)
         {
             int p = primes[j];
             if (p <    10) return primes[i] * 10    + p;
@@ -51,13 +51,13 @@ namespace Euler.Solutions
             //return primes[i] * (int)Math.Pow(10,(int)(Math.Log10(primes[j])+1))+ primes[j];
             //return int.Parse(primes[i].ToString() + primes[j].ToString());
         }
-        private void show(HashSet<int> fiveprimes)
-        {
-            for (int p = 0; p < fiveprimes.Count; p++)
-            {
-                Console.Write("{0},",primes[fiveprimes.ElementAt(p)]);
-            }
-            Console.WriteLine(" sum = {0}", sum);
-        }
+        //private void Show(HashSet<int> fiveprimes)
+        //{
+        //    for (int p = 0; p < fiveprimes.Count; p++)
+        //    {
+        //        Console.Write("{0},",primes[fiveprimes.ElementAt(p)]);
+        //    }
+        //    Console.WriteLine(" sum = {0}", sum);
+        //}
     }
 }
