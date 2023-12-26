@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million.1234567890123456789012345678901234567890

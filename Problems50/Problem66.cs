@@ -42,7 +42,7 @@
     /// </summary>
     class Triple
     {
-        public long a,b,k,N;
+        public long a, b, k, N;
         public Triple(int N)
         {
             a = (int)(Math.Sqrt(N) + 0.5);

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=50
@@ -16,16 +11,16 @@ namespace Euler.Solutions
     /// performance improvements:
     /// 
     /// </summary>
-    class Problem50: Helper,IProblem
+    class Problem50 : Helper, IProblem
     {
         public double Execute()
         {
             int sum = 0;
             foreach (var prime in primes) if ((sum += prime) > 1000000)
-            {
-                sum -= prime;
-                break;
-            }
+                {
+                    sum -= prime;
+                    break;
+                }
             foreach (var prime in primes) if (IsPrime(sum -= prime)) break;
             return sum;
         }

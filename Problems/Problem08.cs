@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Find the greatest product of five consecutive digits in the 1000-digit number.
     ///</summary>
     /// <returns>40824</returns>
-    class Problem08: IProblem
+    class Problem08 : IProblem
     {
         public double Execute()
         {
             for (int i = 0; i < thousandDigitNumber.Length - 4; i++)
             {
                 int n = 1;
-                for (int j = 0; j < 5; j++) n *= thousandDigitNumber[i+j]-'0';
+                for (int j = 0; j < 5; j++) n *= thousandDigitNumber[i + j] - '0';
                 if (n > result) result = n;
             }
             return result;
@@ -43,6 +38,6 @@ namespace Euler.Solutions
         84580156166097919133875499200524063689912560717606
         05886116467109405077541002256983155200055935729725
         71636269561882670428252483600823257530420752963450
-        ".Replace("\r\n", "").Replace(" ","");
+        ".Replace("\r\n", "").Replace(" ", "");
     }
 }

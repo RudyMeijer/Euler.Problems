@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Diagnostics;
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=55
@@ -31,7 +25,7 @@ namespace Euler.Solutions
         private bool IsLychrel(ulong n)
         {
             ulong r = Reverse(n);
-            for (int i = 0; i < 24; i++) if ((r = Reverse(n += r)) == n ) return false;
+            for (int i = 0; i < 24; i++) if ((r = Reverse(n += r)) == n) return false;
             return true;
         }
 
@@ -40,7 +34,7 @@ namespace Euler.Solutions
             ulong r = 0;
             do r = r * 10 + n % 10; while ((n /= 10) > 0);
             return r;
-        }        
+        }
 
         private bool IsLychrel1(ulong n)
         {

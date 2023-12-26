@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once; for example, the 5-digit number, 15234, is 1 through 5 pandigital.
@@ -33,15 +28,15 @@ namespace Euler.Solutions
     /// 
     ///</summary>
     /// <returns></returns>
-    class Problem32: IProblem
+    class Problem32 : IProblem
     {
-        public double Execute() 
+        public double Execute()
         {
             HashSet<int> products = new HashSet<int>(); // Use HashSet to ignore duplicate products.
             for (int i = 1; i < 100; i++) for (int j = i; j < 10000 / i; j++)
-            {
-                if (isPandigital(i, j, i * j)) products.Add(i * j);
-            }
+                {
+                    if (isPandigital(i, j, i * j)) products.Add(i * j);
+                }
             return products.Sum();
         }
 
@@ -51,7 +46,7 @@ namespace Euler.Solutions
             string s = i.ToString() + j.ToString() + p.ToString();
             if (s.Length != 9) return false;
             var q = from c in s
-                    where c !='0'
+                    where c != '0'
                     select c;
             var r = q.Distinct();
             if (r.Count() != 9) return false;
@@ -66,7 +61,7 @@ namespace Euler.Solutions
             do digits[p % 10] = true; while ((p /= 10) > 0);
 
             for (int d = 1; d < 10; d++) if (!digits[d]) return false;
-            
+
             return true;
         }
     }

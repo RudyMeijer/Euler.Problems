@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// This class contains a reference loop.
@@ -16,13 +11,13 @@ namespace Euler.Solutions
     /// then your solution of problem03 is more efficient. (6/3,37*58 ms > 80 ms )
     ///</summary>
     /// <returns></returns>
-    class Problem00: IProblem
+    class Problem00 : IProblem
     {
-        public double Execute() 
+        public double Execute()
         {
             for (int i = 0; i < 1000000; i++)
             {
-            } 
+            }
             return -1;
         }
     }

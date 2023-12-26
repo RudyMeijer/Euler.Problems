@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Euler published the remarkable quadratic formula: n² + n + 41
@@ -14,7 +9,7 @@ namespace Euler.Solutions
     /// Find the product of the coefficients, a and b, for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n = 0.
     /// </summary>
     /// <returns></returns>
-    class Problem27: IProblem
+    class Problem27 : IProblem
     {
         PrimeNumberSieve p = new PrimeNumberSieve();
         public double Execute()
@@ -23,12 +18,12 @@ namespace Euler.Solutions
 
             int nx = 0, ax = 0, bx = 0;
             foreach (var a in primes) foreach (var b in primes)
-	        {
-                int n = 0;
-                while (IsPrime(n * n - a * n + b)) n++;
+                {
+                    int n = 0;
+                    while (IsPrime(n * n - a * n + b)) n++;
 
-                if (n > nx) { nx = n; ax = -a; bx = b;}
-	        }
+                    if (n > nx) { nx = n; ax = -a; bx = b; }
+                }
             return ax * bx;
         }
         private bool IsPrime(int n)

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Diagnostics;
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=57
@@ -25,8 +19,8 @@ namespace Euler.Solutions
     {
         public double Execute()
         {
-			Fraction ff = iterations(14);
-			Fraction f = iterations(39);
+            Fraction ff = iterations(14);
+            Fraction f = iterations(39);
             return 2 * 1000 / 13;
         }
         private Fraction iterations(int i)
@@ -45,7 +39,7 @@ namespace Euler.Solutions
             // if i=0 return 1/2 else
             // return 1/(2+1/f) = f/(2*f+1)
             //
-            if (i == 0) return new Fraction(1,2);
+            if (i == 0) return new Fraction(1, 2);
             Fraction f = iterations(i - 1);
             //Console.WriteLine("{0} {1}",i,f);
             return new Fraction(f.denominator, 2 * f.denominator + f.numerator);
@@ -56,16 +50,16 @@ namespace Euler.Solutions
             public long numerator;
             public long denominator;
             public bool moreDigits;
-            public Fraction(long n,long d)
+            public Fraction(long n, long d)
             {
                 this.numerator = n;
                 this.denominator = d;
-                this.moreDigits = (int)Math.Log10(n+d) > (int)Math.Log10(d);
+                this.moreDigits = (int)Math.Log10(n + d) > (int)Math.Log10(d);
             }
             public override string ToString()
             {
-                return String.Format("{0}/{1} {2} {3}",this.numerator+this.denominator,this.denominator,(double)this.numerator/this.denominator,moreDigits?"Y":" ");
+                return String.Format("{0}/{1} {2} {3}", this.numerator + this.denominator, this.denominator, (double)this.numerator / this.denominator, moreDigits ? "Y" : " ");
             }
         }
-    } 
+    }
 }

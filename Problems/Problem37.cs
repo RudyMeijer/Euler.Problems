@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-//using System.Diagnostics;
+﻿//using System.Diagnostics;
 
 namespace Euler.Solutions
 {
@@ -14,7 +10,7 @@ namespace Euler.Solutions
     /// 2) Don't count primes 2,3,5,7  sum-17 is faster than primes.Skip(4) 
     /// 
     /// </summary>
-    class Problem37: IProblem
+    class Problem37 : IProblem
     {
         PrimeNumberSieve p = new PrimeNumberSieve();
         List<int> primes = new PrimeNumberSieve().TakeWhile(c => c < 800000).ToList();
@@ -23,7 +19,7 @@ namespace Euler.Solutions
             int sum = -17;
             foreach (var prime in primes)
                 if (StripDigitsPrime(prime)) sum += prime;
-                    
+
             return sum;
         }
 

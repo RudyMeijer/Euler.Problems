@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace Euler.Solutions
 {
@@ -25,13 +20,13 @@ namespace Euler.Solutions
         /// <returns>
         /// result, passed, ElapsedMilliseconds
         /// </returns>
-        public static void Pass(IProblem problem,int count)
+        public static void Pass(IProblem problem, int count)
         {
             if (answers == null) GetAnswers("text/Answers.txt");
             int nr = problem.ToString().Nr();
             var expected = answers[nr];
             Stopwatch s = Stopwatch.StartNew();
-            while (count--> 0) result = problem.Execute();
+            while (count-- > 0) result = problem.Execute();
             ElapsedMilliseconds = s.ElapsedMilliseconds;
             TotalTime += ElapsedMilliseconds;
             passed = result == expected;

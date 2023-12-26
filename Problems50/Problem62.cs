@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=62
@@ -12,7 +7,7 @@ namespace Euler.Solutions
     /// 
     /// performance improvements:
     ///</summary>
-    class Problem62: Helper,IProblem
+    class Problem62 : Helper, IProblem
     {
         public double Execute()
         {
@@ -22,7 +17,7 @@ namespace Euler.Solutions
             {
                 string s = SortDigits(n * n * n);
                 if (!list.ContainsKey(s)) list.Add(s, 0);
-                if ( ++list[s] == 5 ) sum = n * n * n;
+                if (++list[s] == 5) sum = n * n * n;
             }
             return sum;
         }

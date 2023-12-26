@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=52
@@ -25,15 +20,15 @@ namespace Euler.Solutions
         public double Execute()
         {
             for (int b = 1; b < 1000000; b *= 10) for (int n = b; n < 1.6 * b; n++)
-            {
-                var digits = Digits(1 * n);
-                if (digits == Digits(2 * n) &&
-                    digits == Digits(3 * n) &&
-                    digits == Digits(4 * n) &&
-                    digits == Digits(5 * n) &&
-                    digits == Digits(6 * n))
-                return n;
-            }
+                {
+                    var digits = Digits(1 * n);
+                    if (digits == Digits(2 * n) &&
+                        digits == Digits(3 * n) &&
+                        digits == Digits(4 * n) &&
+                        digits == Digits(5 * n) &&
+                        digits == Digits(6 * n))
+                        return n;
+                }
             return 0;
         }
         private int Digits(int n)

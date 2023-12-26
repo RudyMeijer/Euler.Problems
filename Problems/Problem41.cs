@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=41
@@ -20,12 +15,12 @@ namespace Euler.Solutions
     /// 2) Use the fast Miller-Rabin test to check if a big number is a prime.
     /// 
     /// </summary>
-    class Problem41: Helper,IProblem
+    class Problem41 : Helper, IProblem
     {
-        public double Execute() 
+        public double Execute()
         {
             foreach (var perm in Permutation(7654321L)) if ((perm.IsPrime()))
-                return perm;
+                    return perm;
             return 0;
         }
     }

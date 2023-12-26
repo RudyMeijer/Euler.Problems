@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:
@@ -23,7 +18,7 @@ namespace Euler.Solutions
     /// 
     /// </summary>
     /// <returns></returns>
-    class Problem28: IProblem
+    class Problem28 : IProblem
     {
         //
         // Solution 2:
@@ -37,7 +32,7 @@ namespace Euler.Solutions
             int sum = 1;
             for (int n = 1; n <= 500; n++)
             {
-                sum += (4 * n * n + n + 1)<<2;
+                sum += (4 * n * n + n + 1) << 2;
             }
             return sum;
         }
@@ -55,11 +50,11 @@ namespace Euler.Solutions
         public double ExecuteLinq() // 6 ms.
         {
             int sum = 1;
-            var s = Enumerable.Range(1,501); 
-            var r = from x in s select 2*x-1;
+            var s = Enumerable.Range(1, 501);
+            var r = from x in s select 2 * x - 1;
             var d = from x in r select 4 * (x - 1);
-            var e = (from x in d.Select(x=> sum+=x) select x).ToArray();
-            var f = from x in e.Select((x,i) => x-6*(i+1)+6) select x;
+            var e = (from x in d.Select(x => sum += x) select x).ToArray();
+            var f = from x in e.Select((x, i) => x - 6 * (i + 1) + 6) select x;
 
             return 2 * (e.Sum() + f.Sum()) - 3;
         }

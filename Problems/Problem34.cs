@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Diagnostics;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Find the sum of all numbers which are equal to the sum of the factorial of their digits.
@@ -27,21 +21,21 @@ namespace Euler.Solutions
     /// 2) Add Cache Fac 0 to 9       //   15 ->  3 ms.
     /// 
     /// </summary>
-    class Problem34: IProblem
+    class Problem34 : IProblem
     {
         List<int> fac = new List<int>();
         public double Execute()
         {
-            int sum=0;
+            int sum = 0;
             for (int i = 0; i < 10; i++) fac.Add(Fac(i));
             for (int n = 3; n < 41000; n++) if (n == FacDigits(n)) sum += n;
-                    
+
             return sum;
         }
         private int FacDigits(int n)
         {
             int sum = 0;
-            do sum += fac[n % 10]; while ((n /= 10) > 0);   
+            do sum += fac[n % 10]; while ((n /= 10) > 0);
             return sum;
         }
         private int Fac(int n)

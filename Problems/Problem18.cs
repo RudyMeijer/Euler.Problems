@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Find the maximum total from top to bottom of the triangle below:
     /// </summary>
     /// <returns></returns>
-    class Problem18: IProblem
+    class Problem18 : IProblem
     {
         public double Execute()
         {
@@ -31,7 +26,7 @@ namespace Euler.Solutions
                                 select int.Parse(bytes)).ToArray()).ToArray();
             max = (from y in triangle select (from x in y select 0).ToArray()).ToArray();
         }
-        int[][] triangle,max;
+        int[][] triangle, max;
         string striangle = @"
                       75
                      95 64

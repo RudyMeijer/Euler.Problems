@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:
@@ -20,11 +15,11 @@ namespace Euler.Solutions
     /// 3) limit n to 200000                // 102 ->  20 ms.
     ///</summary>
     /// <returns></returns>
-    class Problem30: IProblem
+    class Problem30 : IProblem
     {
         List<int> pow = new List<int>();
         List<int> list = new List<int>();
-        public double Execute() 
+        public double Execute()
         {
             for (int i = 0; i < 10; i++) pow.Add((int)Math.Pow(i, 5));
             for (int n = 2; n < 200000; n++) if (n == SumPow5(n)) list.Add(n);

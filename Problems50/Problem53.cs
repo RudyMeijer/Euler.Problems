@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=53
@@ -21,10 +16,10 @@ namespace Euler.Solutions
         {
             long sum = 0;
             for (int n = 23; n <= 100; n++) for (int r = 4; r <= n; r++) if (C(n, r) > 1000000)
-            {
-                sum += (n - 2 * r + 1);
-                break;
-            }
+                    {
+                        sum += (n - 2 * r + 1);
+                        break;
+                    }
             return sum;
         }
     }

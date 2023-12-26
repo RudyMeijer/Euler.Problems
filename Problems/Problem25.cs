@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// The Fibonacci sequence is defined by the recurrence relation:
@@ -19,7 +14,7 @@ namespace Euler.Solutions
     /// The number of digits in F(n) is asymptotic to n*Log(Q) where Q = GoldenRatio = 1.61803;(see http://en.wikipedia.org/wiki/Fibonacci_number)
     /// </summary>
     /// <returns></returns>
-    class Problem25: IProblem
+    class Problem25 : IProblem
     {
         double GoldenRatio = (1 + Math.Sqrt(5)) / 2; // ~ 1.6180339887
         public double Execute()

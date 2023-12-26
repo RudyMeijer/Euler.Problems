@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
@@ -14,7 +9,7 @@ namespace Euler.Solutions
     /// Solution: A cache (3 LOC's) can further improve speed by another 30%.
     ///</summary>
     /// <returns></returns>
-    class Problem21: IProblem
+    class Problem21 : IProblem
     {
         public double Execute() // 3,6 ms.
         {
@@ -29,7 +24,7 @@ namespace Euler.Solutions
         private int d(int n)
         {
             int sqr = (int)Math.Sqrt(n);
-            int sum = (sqr == Math.Sqrt(n)) ? 1-sqr : 1;
+            int sum = (sqr == Math.Sqrt(n)) ? 1 - sqr : 1;
             for (int i = 2; i <= sqr; i++) if (n % i == 0) sum += i + n / i;
             return sum;
         }
@@ -47,7 +42,7 @@ namespace Euler.Solutions
                     sum += a + b;
                 }
             }
-            return sum/2;
+            return sum / 2;
         }
         private int dd(int n)
         {

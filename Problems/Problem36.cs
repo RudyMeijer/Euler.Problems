@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 //using System.Diagnostics;
 
 namespace Euler.Solutions
@@ -13,7 +10,7 @@ namespace Euler.Solutions
     /// 1) Generate Palindromes to reduce loop from 1000000 to 1110 times.
     /// 
     /// </summary>
-    class Problem36: IProblem
+    class Problem36 : IProblem
     {
         public double Execute() // 3 ms.
         {
@@ -29,8 +26,8 @@ namespace Euler.Solutions
             int sum = 0;
             for (int i = 1; i < 1000000; i++)
             {
-                string bin = ConvertToBase(2,i);
-                string dec = ConvertToBase(10,i);
+                string bin = ConvertToBase(2, i);
+                string dec = ConvertToBase(10, i);
                 if (IsPalindrome(bin) && IsPalindrome(dec)) sum += i;
             }
             return sum;
@@ -48,8 +45,8 @@ namespace Euler.Solutions
         }
         private bool IsPalindrome(string s)
         {
-            for (int i = 0; i < s.Length / 2; i++) 
-                if (s[i] != s[s.Length - i - 1]) 
+            for (int i = 0; i < s.Length / 2; i++)
+                if (s[i] != s[s.Length - i - 1])
                     return false;
             return true;
         }

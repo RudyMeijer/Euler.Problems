@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=61
@@ -12,10 +7,10 @@ namespace Euler.Solutions
     /// 
     /// performance improvements:
     ///</summary>
-    class Problem61: Helper,IProblem
+    class Problem61 : Helper, IProblem
     {
-        bool[] inuse = new bool[9]{true,true,true,false,false,false,false,false,false};
-        int sum,begin;
+        bool[] inuse = new bool[9] { true, true, true, false, false, false, false, false, false };
+        int sum, begin;
 
         public double Execute()
         {
@@ -25,22 +20,22 @@ namespace Euler.Solutions
 
         private bool cyclic(int nr, int prev, int level)
         {
-            int left, right, p, n=19;
+            int left, right, p, n = 19;
             if (isUsed(nr)) return false;
 
             while (true) if (Split(p = polygonal(nr, ++n), out left, out right))
-            {
-                if (level == 1)   begin = left;
-                if (level == 1 || prev == left)
                 {
-                    if (level == 6 && begin == right) 
-                        sum += p;
-                    for (int i = 3; i <= 8; i++) if (cyclic(i, right, level + 1))
-                        sum += p;
-                    if (sum > 0) return true;
+                    if (level == 1) begin = left;
+                    if (level == 1 || prev == left)
+                    {
+                        if (level == 6 && begin == right)
+                            sum += p;
+                        for (int i = 3; i <= 8; i++) if (cyclic(i, right, level + 1))
+                                sum += p;
+                        if (sum > 0) return true;
+                    }
+                    else if (left > prev) break;
                 }
-                else if (left > prev) break;
-            }
             reset(nr);
             return false;
         }

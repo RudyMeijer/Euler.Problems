@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=40
@@ -23,7 +18,7 @@ namespace Euler.Solutions
     /// performance improvements: 
     /// 
     /// </summary>
-    class Problem40: IProblem
+    class Problem40 : IProblem
     {
         public double Execute() // 1 us
         {
@@ -43,7 +38,7 @@ namespace Euler.Solutions
             }
             return 0;
         }
-        public int dd(int n) 
+        public int dd(int n)
         {
             int o = 1;                          // Base offset: 1, 10, 190, 2890, 38890
             int p = 1;                          // Power of 10: 1, 10, 100, 1000, 10000

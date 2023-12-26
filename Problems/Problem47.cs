@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=47
@@ -25,13 +19,13 @@ namespace Euler.Solutions
     /// 
     /// 1) add square root4 test -> 2 times faster   if 57*57*57*57 > number then stop   int sqrt4 = (int)Math.Pow(number, 0.25); 
     /// </summary>
-    class Problem47: IProblem
+    class Problem47 : IProblem
     {
         //PrimeNumberSieve primes = new PrimeNumberSieve();//14805 ms
         List<int> primes = new PrimeNumberSieve().ToList(); //2140 ms
         public double Execute() // 2140 -> 117 ms.
         {
-            int i = 1; 
+            int i = 1;
             for (int seq = 0; seq < 4; i++) if (PrimeDivisors(i) == 4) seq++; else seq = 0;
             return i - 4;
         }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Using names.txt (right click and 'Save Link/Target As...'), a 46K text file containing over five-thousand first names, begin by sorting it into alphabetical order. Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list to obtain a name score.
@@ -13,14 +7,14 @@ namespace Euler.Solutions
     /// What is the total of all the name scores in the file?
     /// </summary>
     /// <returns></returns>
-    class Problem22: IProblem
+    class Problem22 : IProblem
     {
         List<string> names;
-        public double Execute() 
+        public double Execute()
         {
             names = File.ReadAllText("text/names.txt").Replace("\"", "").Split(',').ToList<string>();
             names.Sort();
-            var query = from name in names.Select((name, index) => (index + 1) * 
+            var query = from name in names.Select((name, index) => (index + 1) *
                            (from c in name select c - '@').Sum())
                         select name;
 

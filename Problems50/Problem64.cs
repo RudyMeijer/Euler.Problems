@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=64
@@ -20,7 +15,7 @@ namespace Euler.Solutions
     /// 
     /// performance improvements:
     ///</summary>
-    class Problem64: Helper,IProblem
+    class Problem64 : Helper, IProblem
     {
         public double Execute()
         {
@@ -32,7 +27,7 @@ namespace Euler.Solutions
         int period_length(int n)
         {
             int a0, b0, c0, a, b, c, result = 0;
-            a0 = (int) Math.Sqrt(n);
+            a0 = (int)Math.Sqrt(n);
             b = b0 = a0;
             c = c0 = n - a0 * a0;
             if (c == 0) return 0;
@@ -42,7 +37,7 @@ namespace Euler.Solutions
                 b = a * c - b;
                 c = (n - b * b) / c;
                 result++;
-            } 
+            }
             while ((b != b0) || (c != c0));
             return result;
         }

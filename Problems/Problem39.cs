@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=39
@@ -25,7 +20,7 @@ namespace Euler.Solutions
     /// So answer must be a multiple of 12.
     /// 
     /// </summary>
-    class Problem39: IProblem
+    class Problem39 : IProblem
     {
         public double Execute() //6 ms -> 0.2 ms
         {
@@ -49,9 +44,9 @@ namespace Euler.Solutions
         }
     }
 }
-                        //if (p == 840)
-                        //{
-                        //    var b = (p * p - 2 * p * a) / (2 * (p - a));
-                        //    var c = p - a - b;
-                        //    Console.WriteLine("p={0}, {{{1},{2},{3}}}", p, a, b, c);             // , Math.Sqrt(a * a + b * b) == c, a + b + c == p, Math.Sqrt(a * a + b * b));
-                        //}
+//if (p == 840)
+//{
+//    var b = (p * p - 2 * p * a) / (2 * (p - a));
+//    var c = p - a - b;
+//    Console.WriteLine("p={0}, {{{1},{2},{3}}}", p, a, b, c);             // , Math.Sqrt(a * a + b * b) == c, a + b + c == p, Math.Sqrt(a * a + b * b));
+//}

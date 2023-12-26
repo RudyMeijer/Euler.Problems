@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=48
@@ -17,7 +11,7 @@ namespace Euler.Solutions
     /// performance improvements:
     /// 
     /// </summary>
-    class Problem48: IProblem
+    class Problem48 : IProblem
     {
         public double Execute()
         {

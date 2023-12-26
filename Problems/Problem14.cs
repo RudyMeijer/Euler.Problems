@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// The following iterative sequence is defined for the set of positive integers:
@@ -31,7 +27,7 @@ namespace Euler.Solutions
             terms[1] = 1;
             int tx = 0;
             int result = 0;
-            for (int i = 1; i < 1000000; i+=2)
+            for (int i = 1; i < 1000000; i += 2)
             {
                 int t = Count(i);
                 if (t > tx)
@@ -44,8 +40,8 @@ namespace Euler.Solutions
         }
         private int Count(long i)
         {
-            if (i >= 1000000)     return 1 + Count((i & 1) == 0 ? i >> 1 : (3 * i + 1));
-            if (terms[i]==0)  terms[i] = 1 + Count((i & 1) == 0 ? i >> 1 : (3 * i + 1));
+            if (i >= 1000000) return 1 + Count((i & 1) == 0 ? i >> 1 : (3 * i + 1));
+            if (terms[i] == 0) terms[i] = 1 + Count((i & 1) == 0 ? i >> 1 : (3 * i + 1));
             return terms[i];
         }
         //

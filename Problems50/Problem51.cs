@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=51
@@ -28,11 +23,11 @@ namespace Euler.Solutions
         {
             char digit = '0';
             foreach (var prime in primes) if (HasSameDigits(prime, ref digit) && digit <= '2') // add 2)
-            {
-                int cnt = 0;
-                for (char i = '1'; i <= '9'; i++) if (IsPrime(Replace(prime, digit, i))) cnt++;
-                if (cnt == 8) return prime;
-            }
+                {
+                    int cnt = 0;
+                    for (char i = '1'; i <= '9'; i++) if (IsPrime(Replace(prime, digit, i))) cnt++;
+                    if (cnt == 8) return prime;
+                }
             return 0;
         }
         /// <summary>
@@ -42,14 +37,14 @@ namespace Euler.Solutions
         {
             string s = number.ToString();
             if (s.Length == 6)
-            for (int i = 0; i < s.Length - 1; i++) //add 1)
-            {
-                for (int j = i + 1; j < s.Length - 1; j++) if (s[i] == s[j])
+                for (int i = 0; i < s.Length - 1; i++) //add 1)
                 {
-                    digit = s[i];
-                    return true;
+                    for (int j = i + 1; j < s.Length - 1; j++) if (s[i] == s[j])
+                        {
+                            digit = s[i];
+                            return true;
+                        }
                 }
-            }
             return false;
         }
 

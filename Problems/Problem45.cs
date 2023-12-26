@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=45
@@ -22,7 +16,7 @@ namespace Euler.Solutions
     /// we get 1.5n*n - 0.5n - P(n) = 0 where P(n) = H(n)
     /// 
     /// </summary>
-    class Problem45: IProblem
+    class Problem45 : IProblem
     {
         public double ExecuteAltRoots() // 1 ms.
         {
@@ -39,7 +33,7 @@ namespace Euler.Solutions
 
         private double rootABCformule(double A, double B, double C)
         {
-            var r = (-B + Math.Sqrt(B * B - 4 * A * C)) /( 2 * A);
+            var r = (-B + Math.Sqrt(B * B - 4 * A * C)) / (2 * A);
             return r;
         }
         public double Execute() // 1 ms.

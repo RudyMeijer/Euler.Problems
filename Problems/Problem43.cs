@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=43
@@ -33,10 +27,10 @@ namespace Euler.Solutions
     /// performance improvements: 
     /// 
     /// </summary>
-    class Problem43: IProblem
+    class Problem43 : IProblem
     {
         int[] d = new int[11];
-        int[] divs = {0, 0, 0 ,0, 2, 3, 5, 7, 11, 13, 17 }; 
+        int[] divs = { 0, 0, 0, 0, 2, 3, 5, 7, 11, 13, 17 };
         List<long> pandigitals = new List<long>();
 
         public double Execute() // 8 ms.
@@ -49,17 +43,17 @@ namespace Euler.Solutions
         {
             int div = divs[i];
             for (d[i] = 0; d[i] < 10; d[i]++) if (Unique(i))
-            {
-                if (i >= 4)
                 {
-                    if ((d[i - 2] * 100 + d[i - 1] * 10 + d[i]) % div == 0)
+                    if (i >= 4)
                     {
-                        if (i == 10) pandigitals.Add(d.Aggregate(0L, (c, x) => c * 10 + x));
-                        else CheckDigit(i + 1);
+                        if ((d[i - 2] * 100 + d[i - 1] * 10 + d[i]) % div == 0)
+                        {
+                            if (i == 10) pandigitals.Add(d.Aggregate(0L, (c, x) => c * 10 + x));
+                            else CheckDigit(i + 1);
+                        }
                     }
+                    else CheckDigit(i + 1);
                 }
-                else CheckDigit(i + 1);
-            }
         }
 
         private bool Unique(int i)

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Each character on a computer is assigned a unique code and the preferred standard is ASCII (American Standard Code for Information Interchange). For example, uppercase A = 65, asterisk (*) = 42, and lowercase k = 107.
@@ -13,7 +8,7 @@ namespace Euler.Solutions
     /// Your task has been made easy, as the encryption key consists of three lower case characters. Using cipher1.txt (right click and 'Save Link/Target As...'), a file containing the encrypted ASCII codes, and the knowledge that the plain text must contain common English words, decrypt the message and find the sum of the ASCII values in the original text.
     ///</summary>
     /// <returns>107359</returns>
-    class Problem59: IProblem
+    class Problem59 : IProblem
     {
         public double Execute()
         {
@@ -22,11 +17,11 @@ namespace Euler.Solutions
                           group c by c.index % 3 into g
                           select g.Select(c => c.item).ToArray();
 
-            string key="";
+            string key = "";
             foreach (var lijst in lijsten) key += MaxCount(Validate(lijst));
             var decriptedMessage = Decript(input, key);
             //Display(decriptedMessage);
-            return decriptedMessage.Sum(c=>c);
+            return decriptedMessage.Sum(c => c);
         }
         /// <summary>
         /// Decript message with provided key.
@@ -34,7 +29,7 @@ namespace Euler.Solutions
         /// <returns>decripted message</returns>
         private byte[] Decript(byte[] message, string key)
         {
-            var r = from c in message.Select((item,index) => item ^ key[index%3])
+            var r = from c in message.Select((item, index) => item ^ key[index % 3])
                     select (byte)c;
             return r.ToArray();
         }
@@ -44,7 +39,7 @@ namespace Euler.Solutions
         private static string MaxCount(IEnumerable<int> freq)
         {
             int max = freq.Max();
-            var i = freq.Select((item, index) => new { item, index }).Single(x=>x.item == max).index;
+            var i = freq.Select((item, index) => new { item, index }).Single(x => x.item == max).index;
             var c = Enumerable.Range('a', 26).ElementAt(i);
             return ((char)c).ToString();
         }
@@ -59,7 +54,7 @@ namespace Euler.Solutions
         }
         private static void Display(byte[] chiper)
         {
-            foreach (var item in chiper) Console.Write("{0}", (char)item); 
+            foreach (var item in chiper) Console.Write("{0}", (char)item);
             Console.WriteLine();
         }
         private byte[] get(string ciphertxt)

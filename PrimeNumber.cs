@@ -1,8 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics;
 
 namespace Euler.Solutions
 {
@@ -10,7 +6,7 @@ namespace Euler.Solutions
     /// This class generates the PrimeNumber sequence: 2,3,5,7,11,13,17,19,...
     /// </summary>
     [Obsolete("use PrimeNumberSieve")]
-    public class PrimeNumber: IEnumerable<int>
+    public class PrimeNumber : IEnumerable<int>
     {
         IEnumerator<int> IEnumerable<int>.GetEnumerator()
         {
@@ -68,16 +64,16 @@ namespace Euler.Solutions
         public PrimeNumberSieve()
         {
             int bit;
-            bits = new uint[limit/32];
+            bits = new uint[limit / 32];
             for (int i = 0; i < bits.Length; i++) bits[i] = 0xaaaaaaaa; bits[0] = 0xaaaaaaac; //strike out all even bits. except 2.
-            for (int i = 3; i < limit; i+=2) if (IsPrime(i)) // check all odd numbers. if isprime then
-            {
-                for (int j = 3; (bit=j*i) < limit; j+=2) reset(bit); //strike out the multiples of i.
-            }
+            for (int i = 3; i < limit; i += 2) if (IsPrime(i)) // check all odd numbers. if isprime then
+                {
+                    for (int j = 3; (bit = j * i) < limit; j += 2) reset(bit); //strike out the multiples of i.
+                }
         }
         private void reset(int i)
         {
-            bits[i / 32] &= ((1u << i % 32)^0xffffffff);
+            bits[i / 32] &= ((1u << i % 32) ^ 0xffffffff);
         }
         public bool IsPrime(int i)
         {
@@ -86,7 +82,7 @@ namespace Euler.Solutions
         IEnumerator<int> IEnumerable<int>.GetEnumerator()
         {
             yield return 2;
-            for (int i = 3; i < limit; i+=2) if (IsPrime(i)) yield return i;
+            for (int i = 3; i < limit; i += 2) if (IsPrime(i)) yield return i;
         }
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {

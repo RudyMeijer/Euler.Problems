@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Find the first ten digits of the sum of the following one-hundred 50-digit numbers.
     ///</summary>
     /// <returns>5537376230</returns>
-    class Problem13: IProblem
+    class Problem13 : IProblem
     {
         public double Execute()
         {
@@ -20,7 +15,7 @@ namespace Euler.Solutions
             return BigNumbers.Sum() / 1000;
         }
         List<long> BigNumbers;
-        string grid=@"
+        string grid = @"
         37107287533902102798797998220837590246510135740250
         46376937677490009712648124896970078050417018260538
         74324986199524741059474233309513058123726617309629

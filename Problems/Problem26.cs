@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions with denominators 2 to 10 are given
@@ -23,10 +18,10 @@ namespace Euler.Solutions
     /// Solution: Find length of cyclic numbers. http://en.wikipedia.org/wiki/Cyclic_number
     /// </summary>
     /// <returns></returns>
-    class Problem26: IProblem
+    class Problem26 : IProblem
     {
         int[] primes = new PrimeNumberSieve().TakeWhile(p => p < 1000).SkipWhile(p => p < 10).ToArray();
-                         
+
         public double Execute() // 1 ms.
         {
             int l = 0;
@@ -34,7 +29,7 @@ namespace Euler.Solutions
             foreach (var prime in primes)
             {
                 int len = CyclicNumberLength(prime);
-                if( len > l)
+                if (len > l)
                 {
                     l = len;
                     d = prime;

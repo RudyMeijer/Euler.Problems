@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-//using System.Diagnostics;
+﻿//using System.Diagnostics;
 
 namespace Euler.Solutions
 {
@@ -37,13 +33,13 @@ namespace Euler.Solutions
     /// performance improvements:
     /// 
     /// </summary>
-    class Problem38: IProblem
+    class Problem38 : IProblem
     {
         public double Execute() // 99 us
         {
-            for (int M = 9876; M > 9123; M--) if (isPandigital(M * 100002)) 
-                return M * 100002; // M*1 + M*2
-                    
+            for (int M = 9876; M > 9123; M--) if (isPandigital(M * 100002))
+                    return M * 100002; // M*1 + M*2
+
             return 0;
         }
         private bool isPandigital(int i)

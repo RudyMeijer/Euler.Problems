@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// The sum of the squares of the first ten natural numbers is, 1^2 + 2^2 + ... + 10^2 = 385
@@ -12,7 +7,7 @@ namespace Euler.Solutions
     /// Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
     ///</summary>
     /// <returns>25164150</returns>
-    class Problem06: IProblem
+    class Problem06 : IProblem
     {
         public double Execute()
         {

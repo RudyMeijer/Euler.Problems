@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// In the 2020 grid below, four numbers along a diagonal line have been marked in red.
@@ -9,18 +6,18 @@ namespace Euler.Solutions
     /// What is the greatest product of four adjacent numbers in any direction (up, down, left, right, or diagonally) in the 2020 grid?
     ///</summary>
     /// <returns>70600674</returns>
-    class Problem11: IProblem
+    class Problem11 : IProblem
     {
         public double Execute()
         {
-            int max=0;
+            int max = 0;
             for (int y = 0; y < 17; y++) for (int x = 0; x < 17; x++)
-            {
-                max = Math.Max(product(x  , y, 1, 0), max);// hori -
-                max = Math.Max(product(x  , y, 0, 1), max);// vert | 
-                max = Math.Max(product(x  , y, 1, 1), max);// diag \
-                max = Math.Max(product(x+3, y,-1, 1), max);// diag /
-            }
+                {
+                    max = Math.Max(product(x, y, 1, 0), max);// hori -
+                    max = Math.Max(product(x, y, 0, 1), max);// vert | 
+                    max = Math.Max(product(x, y, 1, 1), max);// diag \
+                    max = Math.Max(product(x + 3, y, -1, 1), max);// diag /
+                }
             return max;
         }
         private int product(int x, int y, int horizontal, int vertical)
@@ -28,9 +25,9 @@ namespace Euler.Solutions
             var prod = grid[y][x];
             for (int i = 0; i < 3; i++)
             {
-                x += horizontal; 
+                x += horizontal;
                 y += vertical;
-                prod *=grid[y][x];
+                prod *= grid[y][x];
             }
             return prod;
         }

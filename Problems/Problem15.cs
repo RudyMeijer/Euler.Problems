@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Drawing;
-
-namespace Euler.Solutions
+﻿namespace Euler.Solutions
 {
     /// <summary>
     /// Starting in the top left corner of a 2x2 grid, there are 6 routes (without backtracking) to the bottom right corner.
@@ -42,9 +36,9 @@ namespace Euler.Solutions
     /// 
     /// </summary>
     /// <returns>137846528820</returns>
-    class Problem15: IProblem
+    class Problem15 : IProblem
     {
-        public double Execute() 
+        public double Execute()
         {
             return Fac(40) / (Fac(20) * Fac(20));
         }
