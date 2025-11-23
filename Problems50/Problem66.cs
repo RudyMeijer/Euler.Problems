@@ -1,4 +1,7 @@
-﻿namespace Euler.Solutions
+﻿using System;
+using Big = System.Numerics.BigInteger; // Essentieel voor grote getallen
+
+namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=66
@@ -7,13 +10,81 @@
     /// 
     /// performance improvements: use Chakravala method http://en.wikipedia.org/wiki/Chakravala_method.
     ///</summary>
+
     class Problem66 : Helper, IProblem
+    {
+        int limit = 1000;
+        int resultD = 0;
+        Big maxX = 0;
+        public double Execute()
+        {
+            for (int D = 2; D <= limit; D++)
+            {
+                // Stap 1: Check of D een perfect kwadraat is
+                int limitSqrt = (int)Math.Sqrt(D);
+                if (limitSqrt * limitSqrt == D)
+                    continue;
+
+                // Variabelen voor de kettingbreuk (Continued Fraction)
+                Big m = 0;
+                Big d = 1;
+                Big a = limitSqrt;
+
+                // Variabelen voor convergenten (h/k)
+                // We gebruiken een iteratieve methode: h_n = a * h_{n-1} + h_{n-2}
+                // Startwaarden (zodat de eerste iteratie correct a/1 oplevert):
+                Big num1 = 1; // Teller (x) vorige stap (n-1)
+                Big num2 = 0; // Teller (x) stap daarvoor (n-2)
+
+                Big den1 = 0; // Noemer (y) vorige stap (n-1)
+                Big den2 = 1; // Noemer (y) stap daarvoor (n-2)
+
+                while (true)
+                {
+                    // Bereken de nieuwe x (teller) en y (noemer)
+                    Big x = a * num1 + num2;
+                    Big y = a * den1 + den2;
+
+                    // Controleer de Pell vergelijking: x^2 - D*y^2 = 1
+                    if ((x * x) - (D * y * y) == 1)
+                    {
+                        // Oplossing gevonden voor deze D
+                        if (x > maxX)
+                        {
+                            maxX = x;
+                            resultD = D;
+                        }
+                        break; // Ga naar de volgende D
+                    }
+
+                    // Update de geschiedenis van x en y voor de volgende iteratie
+                    num2 = num1;
+                    num1 = x;
+
+                    den2 = den1;
+                    den1 = y;
+
+                    // Bereken de volgende termen van de kettingbreuk (m, d, a)
+                    // Volgorde is belangrijk hier!
+                    m = d * a - m;
+                    d = (D - m * m) / d;
+                    a = (limitSqrt + m) / d;
+                }
+            }
+
+            //Console.WriteLine("--------------------------------------------------");
+            //Console.WriteLine($"De waarde van D met de grootste x is: {resultD}");
+            //Console.WriteLine($"De bijbehorende x is: {maxX}");
+            return resultD;
+        }
+    }
+    class Prxoblem66 : Helper, IProblem
     {
         public double Execute()
         {
             var sum = 0.0;
             var list = new long[1001];
-            for (int D = 1; D <= 1000; D++)
+            for (int D = 2; D <= 1000; D++)
             {
                 //Console.WriteLine($"D={D}");
                 var sqr = Math.Sqrt(D);
@@ -34,8 +105,6 @@
             }
             return sum;
         }
-
-
     }
     /// <summary>
     /// a²-N.b² = k
@@ -55,7 +124,7 @@
             this.a = a;
             this.b = b;
             this.k = k;
-            this.N = (a * a - k) / (b * b);
+            this.N = (long)((Math.Pow(a, 2) - k) / Math.Pow(b, 2));
         }
         /// <summary>
         /// 
@@ -67,6 +136,7 @@
             var m = (int)(Math.Sqrt(N) - 1);
             var remainder1 = 1L;
             var remainder2 = 1L;
+            var x = long.MaxValue;
             while (remainder1 != 0 || remainder2 != 0)
             {
                 ++m;
@@ -106,88 +176,3 @@
         }
     }
 }
-
-//private void make(dynamic triple, Tuple<int, int, int> triple1)
-//{
-//    var a = triple.a;
-//    var b = triple.b;
-//    var c = triple.k;
-//    var r = a * c;
-//}
-//public double Execute1()
-//{
-//    var sum = 0.0;
-//    var list = new long[1001];
-//    for (int D = 1; D <= 1000; D++)
-//    {
-//        var sqr = Math.Sqrt(D);
-//        if (sqr == (int)sqr) { list[D] = -1; continue; } // D is kwadratic.
-//        if (list[D] == 0)
-//        {
-//            Console.WriteLine("D={0}", D);
-//            //var Dyy = new Dictionary<int, long>();
-//            var y = 0L;
-//            var x = 0.5;
-//            bool odd = false;
-//            while ((x != (long)x) || !odd)
-//            {
-//                ++y;
-//                x = Math.Sqrt(-4 + D * y * y);
-//                odd = ((long)x & 1) > 0 && ((long)y & 1) > 0;
-//            }
-//            //
-//            // found a minimum x.
-//            //
-//            list[D] = (long)x;
-//        }
-//    }
-//    //
-//    // find D where x is maximum.
-//    //
-//    var maxx = 0l;
-//    for (int D = 0; D <= 1000; D++) if (list[D] > maxx) { maxx = list[D]; maxD = D; }
-//    sum = maxD;
-//    var r1 = long.MaxValue;
-//    var X = list[maxD];
-//    var XX = X * X;
-//    long Y = 78104745;// (long)Math.Sqrt((X * X - 1) / maxD);// 20568;
-//    var YY = Y * Y;
-//    var DYY = maxD * YY;
-//    var r = X * X - maxD * Y * Y;
-//    return sum;
-//}
-////for (int x = 2; x < 1000000000; x++)
-//{
-//    int y; long r = 2;
-//    long xx = (long)x * x;
-//    if (xx < 0) break;
-//    for (y = (int)(x / sqr); ; y++)
-//    {
-//        if (!Dyy.ContainsKey(y))
-//        {
-//            if (Dyy.Count >= 10) Dyy.Clear();
-//            Dyy[y] = (long)D * y * y;
-//        }
-//        r = xx - Dyy[y];
-//        if (r < 1) break; //this loop.
-//        if (r == 1)
-//        {
-//            //
-//            // found a minimum x.
-//            //
-//            list[D] = x;
-//            break;
-//        }
-//    }
-//    if (r == 1) break;
-//            }
-//        }
-//    }
-//    //
-//    // find D where x is maximum.
-//    //
-//    //maxx = 0;
-//    //for (int D = 0; D <= 1000; D++) if (list[D] > maxx) { maxx = list[D]; maxD = D; }
-//    //sum = maxD;
-//    return sum;
-//}

@@ -6,7 +6,12 @@ namespace Euler.Solutions
     {
         static PrimeNumberSieve p = new();
         public static List<int> primes = p.ToList();
-        /// <summary>
+        public static bool IsPerfectKwadraat(int n)
+        {
+            int sqrt = (int)Math.Sqrt(n);
+            return (sqrt * sqrt) == n;
+        }
+       /// <summary>
         /// Combination C(n/k) = n!/k!(n-k)!
         /// </summary>
         /// <param name="n"></param>
@@ -119,6 +124,8 @@ namespace Euler.Solutions
         // Euler pseudoprime.......: a^(n − 1)/2 mod n = +-1
         public static void UnitTest()
         {
+            Debug.Assert(IsPerfectKwadraat(2) == false, "Error IsPerfectKwadraat 2");
+            Debug.Assert(IsPerfectKwadraat(4) == true, "Error IsPerfectKwadraat 4");
             Debug.Assert(Factorsx(7653241) == "7653241 = 251 x 30491", "UnitTest factorsx failed.");
             Debug.Assert(C(4, 2) == 6, "UnitTest C(4,2) failed.");
             Debug.Assert(Fac(4) == 4 * 3 * 2 * 1, "UnitTest fac(4) failed.");
