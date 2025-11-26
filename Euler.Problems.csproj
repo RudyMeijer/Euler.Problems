@@ -5,7 +5,14 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+    <StartupObject>Euler.Solutions.Program</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BenchmarkSuite1\**" />
+    <EmbeddedResource Remove="BenchmarkSuite1\**" />
+    <None Remove="BenchmarkSuite1\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Text\answers.txt" />

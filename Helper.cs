@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Numerics;
 
 namespace Euler.Solutions
 {
@@ -47,26 +48,80 @@ namespace Euler.Solutions
             if (b == 0) return a;
             if (a > b) return gcd(b, a % b); else return gcd(a, b % a);
         }
+        // Deterministic Miller-Rabin for 32-bit and 64-bit integers
         public static bool IsPrime(int n)
         {
             if (n <= 1) return false;
             if (n <= 3) return true;
-            if (n % 2 == 0 || n % 3 == 0) return false;
-            int f = -1;
-            int r = (int)Math.Sqrt(n);
-            while ((f += 6) <= r) if (n % f == 0 || n % (f + 2) == 0) return false;
+            if ((n & 1) == 0) return false;
+
+            if (n % 3 == 0) return n == 3;
+
+            int d = n - 1;
+            int s = 0;
+            while ((d & 1) == 0) { d >>= 1; s++; }
+
+            int[] witnesses = new int[] { 2, 7, 61 };
+            foreach (var a in witnesses)
+            {
+                if (a % n == 0) return true;
+                long x = ModPowLong(a, d, n);
+                if (x == 1 || x == n - 1) continue;
+                bool composite = true;
+                for (int r = 1; r < s; r++)
+                {
+                    x = (x * x) % n;
+                    if (x == n - 1) { composite = false; break; }
+                }
+                if (composite) return false;
+            }
             return true;
         }
+
         public static bool IsPrime(long n)
         {
+            if (n <= int.MaxValue) return IsPrime((int)n);
             if (n <= 1) return false;
-            if (n <= 3) return true;
-            if (n % 2 == 0 || n % 3 == 0) return false;
-            int f = -1;
-            int r = (int)Math.Sqrt(n);
-            while ((f += 6) <= r) if (n % f == 0 || n % (f + 2) == 0) return false;
+            if (n % 2 == 0) return n == 2;
+            if (n % 3 == 0) return n == 3;
+
+            long d = n - 1;
+            int s = 0;
+            while ((d & 1) == 0) { d >>= 1; s++; }
+
+            long[] witnesses = new long[] { 2, 325, 9375, 28178, 450775, 9780504, 1795265022 };
+            var bigN = new System.Numerics.BigInteger(n);
+            var bigD = new System.Numerics.BigInteger(d);
+            foreach (var a in witnesses)
+            {
+                if (a % n == 0) return true;
+                var bigA = new System.Numerics.BigInteger(a);
+                var x = System.Numerics.BigInteger.ModPow(bigA, bigD, bigN);
+                if (x == System.Numerics.BigInteger.One || x == bigN - System.Numerics.BigInteger.One) continue;
+                bool composite = true;
+                for (int r = 1; r < s; r++)
+                {
+                    x = (x * x) % bigN;
+                    if (x == bigN - System.Numerics.BigInteger.One) { composite = false; break; }
+                }
+                if (composite) return false;
+            }
             return true;
         }
+
+        private static long ModPowLong(long value, long exponent, long modulus)
+        {
+            long result = 1;
+            long baseVal = value % modulus;
+            while (exponent > 0)
+            {
+                if ((exponent & 1) == 1) result = (result * baseVal) % modulus;
+                baseVal = (baseVal * baseVal) % modulus;
+                exponent >>= 1;
+            }
+            return result;
+        }
+
         public static bool IsPalindrome(ulong n)
         {
             return (n == Reverse(n)); //19-5-2011
