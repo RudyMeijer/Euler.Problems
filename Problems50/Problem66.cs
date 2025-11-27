@@ -136,7 +136,6 @@ namespace Euler.Solutions
             var m = (int)(Math.Sqrt(N) - 1);
             var remainder1 = 1L;
             var remainder2 = 1L;
-            var x = long.MaxValue;
             while (remainder1 != 0 || remainder2 != 0)
             {
                 ++m;

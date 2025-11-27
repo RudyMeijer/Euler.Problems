@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Problems50\Problem60Baseline.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Text\answers.txt" />
     <None Remove="Text\names.txt" />
     <None Remove="Text\poker.txt" />
