@@ -1,4 +1,6 @@
-﻿namespace Euler.Solutions
+﻿using System.Numerics;
+
+namespace Euler.Solutions
 {
     /// <summary>
     /// see http://projecteuler.net/index.php?section=problems&id=56

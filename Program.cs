@@ -42,42 +42,42 @@ namespace Euler.Solutions
             Console.WriteLine("Total Time: {0} ms", UnitTest.TotalTime);
             
             // Benchmark baseline vs optimized Problem60
-            try
-            {
-                const int iterations = 3;
-                var baselineTimes = new List<long>();
-                var optimizedTimes = new List<long>();
-                double baselineResult = 0, optimizedResult = 0;
+            //try
+            //{
+            //    const int iterations = 3;
+            //    var baselineTimes = new List<long>();
+            //    var optimizedTimes = new List<long>();
+            //    double baselineResult = 0, optimizedResult = 0;
 
-                // baseline
-                for (int i = 0; i < iterations; i++)
-                {
-                    var p = new Problem60Baseline();
-                    var sw = Stopwatch.StartNew();
-                    baselineResult = p.Execute();
-                    sw.Stop();
-                    baselineTimes.Add(sw.ElapsedMilliseconds);
-                    Console.WriteLine($"Baseline Problem60 run {i + 1}: result={baselineResult} time={sw.ElapsedMilliseconds} ms");
-                }
+            //    // baseline
+            //    for (int i = 0; i < iterations; i++)
+            //    {
+            //        var p = new Problem60Baseline();
+            //        var sw = Stopwatch.StartNew();
+            //        baselineResult = p.Execute();
+            //        sw.Stop();
+            //        baselineTimes.Add(sw.ElapsedMilliseconds);
+            //        Console.WriteLine($"Baseline Problem60 run {i + 1}: result={baselineResult} time={sw.ElapsedMilliseconds} ms");
+            //    }
 
-                // optimized
-                for (int i = 0; i < iterations; i++)
-                {
-                    var p = new Problem60();
-                    var sw = Stopwatch.StartNew();
-                    optimizedResult = p.Execute();
-                    sw.Stop();
-                    optimizedTimes.Add(sw.ElapsedMilliseconds);
-                    Console.WriteLine($"Optimized Problem60 run {i + 1}: result={optimizedResult} time={sw.ElapsedMilliseconds} ms");
-                }
+            //    // optimized
+            //    for (int i = 0; i < iterations; i++)
+            //    {
+            //        var p = new Problem60();
+            //        var sw = Stopwatch.StartNew();
+            //        optimizedResult = p.Execute();
+            //        sw.Stop();
+            //        optimizedTimes.Add(sw.ElapsedMilliseconds);
+            //        Console.WriteLine($"Optimized Problem60 run {i + 1}: result={optimizedResult} time={sw.ElapsedMilliseconds} ms");
+            //    }
 
-                Console.WriteLine($"Baseline average: {baselineTimes.Average()} ms, Optimized average: {optimizedTimes.Average()} ms");
-                Console.WriteLine($"Speedup factor: {baselineTimes.Average() / optimizedTimes.Average():F2}x");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Benchmark failed: {ex.Message}");
-            }
+            //    Console.WriteLine($"Baseline average: {baselineTimes.Average()} ms, Optimized average: {optimizedTimes.Average()} ms");
+            //    Console.WriteLine($"Speedup factor: {baselineTimes.Average() / optimizedTimes.Average():F2}x");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine($"Benchmark failed: {ex.Message}");
+            //}
         }
         public static void ConsoleWriteToFile(string outputFile)
         {

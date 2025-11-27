@@ -13,7 +13,7 @@
             return result.Sum(n => n - '0');
         }
 
-        private BigInteger Fac(int n)
+        private System.Numerics.BigInteger Fac(int n)
         {
             if (n == 1) return 1;
             return n * Fac(n - 1);
