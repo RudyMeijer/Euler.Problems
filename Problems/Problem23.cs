@@ -40,7 +40,7 @@
             int sum = q.Sum();
             return sum;
         }
-        private int d(int n)
+        private static int d(int n)
         {
             int sqr = (int)Math.Sqrt(n);
             int sum = (sqr == Math.Sqrt(n)) ? 1 - sqr : 1;
