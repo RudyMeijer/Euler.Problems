@@ -12,7 +12,7 @@ namespace Euler.Solutions
             int sqrt = (int)Math.Sqrt(n);
             return (sqrt * sqrt) == n;
         }
-       /// <summary>
+        /// <summary>
         /// Combination C(n/k) = n!/k!(n-k)!
         /// </summary>
         /// <param name="n"></param>
@@ -32,22 +32,23 @@ namespace Euler.Solutions
         /// </summary>
         /// <param name="numbers"></param>
         /// <returns></returns>
-        public static long kgv(params int[] numbers)
+        public static long KGV(params long[] numbers)
         {
             // 1) Remove all numbers from list which evenly divide other numbers in list.
             // 2) Check if multiple of highest number is divisible by rest of numbers in the list.
-            List<int> num = new List<int>();
+            var num = new List<long>();
             for (int i = 0; i < numbers.Length; i++)
                 if (!numbers.Any(n => n > numbers[i] && n % numbers[i] == 0)) num.Add(numbers[i]);
 
-            int highestNumber = num.Max();
-            for (int lcm = highestNumber; ; lcm += highestNumber) if (num.All(i => lcm % i == 0)) return lcm;
+            long highestNumber = num.Max();
+            for (long lcm = highestNumber; ; lcm += highestNumber) if (num.All(i => lcm % i == 0)) return lcm;
         }
-        public static long gcd(long a, long b)
+        public static long GCD(long a, long b)
         {
             if (b == 0) return a;
-            if (a > b) return gcd(b, a % b); else return gcd(a, b % a);
+            if (a > b) return GCD(b, a % b); else return GCD(a, b % a);
         }
+        public static bool CoPrime(long a, long b) => GCD(a, b) == 1;
         // Deterministic Miller-Rabin for 32-bit and 64-bit integers
         public static bool IsPrime(int n)
         {
@@ -179,18 +180,20 @@ namespace Euler.Solutions
         // Euler pseudoprime.......: a^(n − 1)/2 mod n = +-1
         public static void UnitTest()
         {
+            Debug.Assert(CoPrime(9, 15) == false, "Unittest CoPrime(9, 15).");
+            Debug.Assert(CoPrime(7, 10) == true, "Unittest CoPrime(7, 10).");
             Debug.Assert(IsPerfectKwadraat(2) == false, "Error IsPerfectKwadraat 2");
             Debug.Assert(IsPerfectKwadraat(4) == true, "Error IsPerfectKwadraat 4");
             Debug.Assert(Factorsx(7653241) == "7653241 = 251 x 30491", "UnitTest factorsx failed.");
             Debug.Assert(C(4, 2) == 6, "UnitTest C(4,2) failed.");
             Debug.Assert(Fac(4) == 4 * 3 * 2 * 1, "UnitTest fac(4) failed.");
-            Debug.Assert(kgv(2, 3, 5, 7, 11) == 2 * 3 * 5 * 7 * 11, "Unittest kgv failed.");
+            Debug.Assert(KGV(2, 3, 5, 7, 11) == 2 * 3 * 5 * 7 * 11, "Unittest kgv failed.");
             //for (int i = 0; i < 10; i++) kgv(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
-            Debug.Assert(kgv(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) == 2520, "Unittest kgv failed.");
+            Debug.Assert(KGV(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) == 2520, "Unittest kgv failed.");
             //foreach (var item in Permutation(123456L, 2)) Console.WriteLine(item);
             Debug.Assert(Permutation(123L, 1).Count() == 3, "UnitTest Permutation1 failed.");
             Debug.Assert(Permutation(1234567L).Count() == Fac(7), "UnitTest Permutation2 failed.");
-            Debug.Assert(gcd(42, 56) == 14, "UnitTest gcd failed.");
+            Debug.Assert(GCD(42, 56) == 14, "UnitTest gcd failed.");
             Debug.Assert(IsPalindrome(12345678987654321) == true, "UnitTest Ispalindrome failed.");
             Debug.Assert(IsPalindrome(11) == true, "UnitTest Ispalindrome2 failed.");
             Debug.Assert(IsPalindrome(12) == false, "UnitTest Ispalindrome3 failed.");
