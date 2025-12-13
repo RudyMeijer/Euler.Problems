@@ -26,7 +26,7 @@ namespace Euler.Solutions
             /// Find all problem classes in this assembly.
             /// 
             var Problems = from Problem in Assembly.GetExecutingAssembly().GetTypes()
-                           where Problem.Name.StartsWith("Problem69") // Remove number to execute all tests.
+                           where Problem.Name.StartsWith("Problem") // Remove number to execute all tests.
                            orderby Problem.Name ascending
                            select Problem;
             ///

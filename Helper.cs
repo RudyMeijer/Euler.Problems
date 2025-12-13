@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Net.Http.Headers;
 using System.Numerics;
 
 namespace Euler.Solutions
@@ -26,7 +27,6 @@ namespace Euler.Solutions
         {
             return n <= 1 ? 1 : n * Fac(n - 1);
         }
-
         /// <summary>
         /// Least Common Multiplier (KGV)
         /// </summary>
@@ -78,7 +78,6 @@ namespace Euler.Solutions
             }
             return true;
         }
-
         public static bool IsPrime(long n)
         {
             if (n <= int.MaxValue) return IsPrime((int)n);
@@ -109,7 +108,6 @@ namespace Euler.Solutions
             }
             return true;
         }
-
         private static long ModPowLong(long value, long exponent, long modulus)
         {
             long result = 1;
@@ -122,7 +120,6 @@ namespace Euler.Solutions
             }
             return result;
         }
-
         public static bool IsPalindrome(ulong n)
         {
             return (n == Reverse(n)); //19-5-2011
@@ -133,6 +130,26 @@ namespace Euler.Solutions
             do r = r * 10 + n % 10;
             while ((n /= 10) > 0);
             return r;
+        }
+        public static List<long> Factors(long nn)
+        {
+            var factors = new List<long>();
+            long n = nn;
+            long p = 2;
+            while (p * p <= n)
+            {
+                if (n % p == 0)
+                {
+                    factors.Add(p);
+                    n /= p;
+                }
+                else
+                {
+                    p += (p > 2) ? 2L : 1L;
+                }
+            }
+            factors.Add(n);
+            return factors;
         }
         public static string Factorsx(ulong nn)
         {
@@ -180,6 +197,16 @@ namespace Euler.Solutions
         // Euler pseudoprime.......: a^(n − 1)/2 mod n = +-1
         public static void UnitTest()
         {
+            for (int i = 0; i <= 100; i++)
+            {
+                long product = 1;
+                var factors = Helper.Factors(i);
+                //Console.WriteLine(); Console.Write($"Factors {i}= ");
+                //for (int j = 0; j < factors.Count; j++) Console.Write($" {factors[j]}");
+                for (int j = 0; j < factors.Count; j++) product *= factors[j];
+                Debug.Assert(product == i, $"UnitTest Factors {i}");
+            }
+            Debug.Assert(Helper.Factors(9)[0]==3, "Unittest Factors(9).count=.");
             Debug.Assert(CoPrime(9, 15) == false, "Unittest CoPrime(9, 15).");
             Debug.Assert(CoPrime(7, 10) == true, "Unittest CoPrime(7, 10).");
             Debug.Assert(IsPerfectKwadraat(2) == false, "Error IsPerfectKwadraat 2");
